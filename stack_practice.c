@@ -72,15 +72,30 @@ typedef struct StackArrayList
 void printStackLL(StackLL *s)
 {	
 	int i;
-	Node *temp = s->head;
+	Node *temp;
+
+	if (s == NULL)
+	{
+		printf("Stack does not exist!\n");
+		return;
+	}
+	if (s->size == 0)
+	{
+		printf("Stack is empty!\n");
+		return;
+	}
+
+	temp = s->head;
 	
+	printf("\nSize: %d\n", s->size);
 	printf("Capacity: %d\n\n", s->capacity);
 	
 	for (i = 0; i < s->capacity - s->size; i++)
 		printf("*empty*\n");
-	
+	int count = 0;
 	while (temp != NULL)
 	{
+		if (count++ == 10) return;
 		printf("%d%s", temp->value, (temp->next == NULL) ? "\n\n" : "\n");
 		temp = temp->next;
 	}
@@ -89,7 +104,19 @@ void printStackLL(StackLL *s)
 void printStackArr(StackArr *s)
 {
 	int i;
+
+	if (s == NULL)
+	{
+		printf("Stack does not exist!\n");
+		return;
+	}
+	if (s->size == 0)
+	{
+		printf("Stack is empty!\n");
+		return;
+	}
 	
+	printf("\nSize: %d\n", s->size);
 	printf("Capacity: %d\n\n", s->capacity);
 	
 	for (i = 0; i < s->capacity - s->size; i++)
@@ -97,20 +124,20 @@ void printStackArr(StackArr *s)
 	
 	i = s->size;
 	
-	while (i != 0)
-		printf("%d\n", s->arr[i - 1]);
+	while (i-- != 0)
+		printf("%d\n", s->arr[i]);
 	
 	printf("\n");
 }
 
-// Adds an element to the top of the stack
-??? push(???)
+// Takes in an integer value and returns the address of a node that holds that value
+??? createNode(???)
 {
 	// your code goes here
 }
 
-// Removes an element from the top of the stack and returns the element
-??? pop(???)
+// Returns the address of an initialized stack
+??? createStack(???)
 {
 	// your code goes here
 }
@@ -132,6 +159,20 @@ void printStackArr(StackArr *s)
 {
 	// your code goes here
 }
+
+// Adds an element to the top of the stack
+??? push(???)
+{
+	// your code goes here
+}
+
+// Removes an element from the top of the stack and returns the element
+??? pop(???)
+{
+	// your code goes here
+}
+
+
 
 int main()
 {
